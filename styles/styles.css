@@ -1,11 +1,43 @@
 /* css reset */
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* pseudo-elements*/
+:root{
+    --hdr-height: 100px;
+    --bg-color: #000;
+    --fter-color: #222;
+    --hdr-elements-color: #4a4a4a;
+}
+
+/* generics */
 body{
     font-family: sans-serif;
+}
+
+/* utilities */
+
+/* HEADER */
+header{
+    background-color: var(--bg-color);
+    height: var(--hdr-height);
+    /* to remove: */
+    border-bottom: 1px dashed white;
+}
+
+/* MAIN */
+.wrapper{
+    background-color: var(--bg-color);
+    height: calc(100vh - var(--hdr-height) - var(--hdr-height));
+    overflow-y: auto;
+    color: white;
+}
+
+/* FOOTER */
+footer{
+    background-color: var(--fter-color);
+    height: var(--hdr-height);
 }
