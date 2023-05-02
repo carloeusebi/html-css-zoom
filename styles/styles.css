@@ -17,7 +17,7 @@
 
 /* debug */
 .debug .db-border{
-    border: 2px solid white;
+    border: 2px dashed white;
 }
 
 /* generics */
@@ -35,6 +35,8 @@ body{
     display: flex;
 }
 
+
+
 /* HEADER */
 header{
     background-color: var(--bg-color);
@@ -42,8 +44,6 @@ header{
     justify-content: flex-end;
     align-items: center;
     font-size: 1rem;
-    /* to remove: */
-    border-bottom: 1px dashed white;
 }
 
 header > *{
@@ -53,13 +53,42 @@ header > *{
     margin-right: .5rem;
 }
 
+
+
 /* MAIN */
 .wrapper{
     background-color: var(--bg-color);
     height: calc(100vh - var(--hdr-height) - var(--fter-height));
     overflow-y: auto;
     color: white;
+    padding: 1rem;
 }
+
+.row{
+    flex-wrap: wrap;
+    row-gap: 2rem;
+}
+
+.col{
+    flex: 0 0 calc(100% / var(--ppls-per-row));
+    padding: 0 .5rem;
+    position: relative;
+}
+
+.camview img{
+    max-width: 100%;
+    display: block;
+}
+
+.camview .camview-bar{
+    position: absolute;
+    /* left needs to account for padding */
+    left: .5rem;
+    bottom: 0;
+    padding: .5rem;
+    background-color: rgba(74,74,74,.8);
+}
+
 
 /* FOOTER */
 footer{
