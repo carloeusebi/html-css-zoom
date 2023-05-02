@@ -12,7 +12,8 @@
     --bg-color: #000;
     --fter-color: #222;
     --hdr-elements-color: #4a4a4a;
-    --ppls-per-row: 7;
+    /* maximun number of people per row, minimum is locked at 3 */
+    --max-ppls-per-row: 7;
 }
 
 /* debug */
@@ -33,6 +34,7 @@ body{
 /* utilities */
 .flex{
     display: flex;
+    flex-wrap: wrap;
 }
 
 
@@ -47,6 +49,7 @@ header{
 }
 
 header > *{
+    /* this selector selects both buttons on the header to style them */
     background-color: var(--hdr-elements-color);
     padding: .5rem;
     border-radius: .5rem;
@@ -59,19 +62,24 @@ header > *{
 /* MAIN */
 .wrapper{
     background-color: var(--bg-color);
+    /* wrapper's height is 100viewportheight minus the headers and footer's heights combined,
+    this should allow the desired behaviour */
     height: calc(100vh - var(--hdr-height) - var(--fter-height));
+    width: 100%;
     overflow-y: auto;
     color: white;
     padding: 1rem;
 }
 
 .row{
-    flex-wrap: wrap;
+    justify-content: center;
     row-gap: 2rem;
 }
 
 .col{
-    flex: 0 0 calc(100% / var(--ppls-per-row));
+    max-width: calc(100% / var(--max-ppls-per-row));
+    /* min-width prevents the flex items to "shrink to death" on little screens*/
+    min-width: 275px;
     padding: 0 .5rem;
     position: relative;
 }
@@ -83,7 +91,7 @@ header > *{
 
 .camview .camview-bar{
     position: absolute;
-    /* left needs to account for padding */
+    /* left needs to account for .col's padding */
     left: .5rem;
     bottom: 0;
     padding: .5rem;
@@ -96,19 +104,17 @@ footer{
     background-color: var(--fter-color);
     height: var(--fter-height);
     padding-left: 1rem;
-}
-
-footer .flex{
-    height: 100%;
     justify-content: space-between;
     align-items: center;
 }
 
-footer > * > *{
+footer .button{
+    /* this aligns footer's icons and thei respective text */
     text-align: center;
 }
 
 footer .fa-solid{
+    /* this gives size to footer's icons and gives some room betweem them and text */
     font-size: 2rem;
     padding-bottom: .5rem;
 }
@@ -118,11 +124,13 @@ footer .button .fa-share-from-square{
 }
 
 footer .button.btn-with-more{
+    /* this aligns the arrows with the icon for mic, camera and screenshare buttons*/
     display: flex;
     align-items: center;
 }
 
 footer .fa-angle-up{
+    /* this controls the arrows size */
     font-size: .8rem;
     padding-left: 1rem;
 }

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Carlo Eusebi">
-    <title>Document</title>
+    <title>Zoom App</title>
     <!-- font awesome -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css' integrity='sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==' crossorigin='anonymous'>
     <!-- styles.css -->
@@ -20,6 +20,7 @@
 
     <!-- HEADER -->
     <header class="flex">
+        <!-- header contains two buttons, both are flex-ended (aligned to the right) -->
         <div class="view-selector"><i class="fa-solid fa-table-cells"></i> Speaker View</div>
         <div class="fullscreen-selector"><i class="fa-solid fa-maximize"></i></div>
     </header>
@@ -27,17 +28,22 @@
     <!-- MAIN -->
     <main class="nodebug">
 
-        <!-- main wrapper -->
+        <!-- main wrapper, it is needed to calculate main's height (100vh - header's height - footer's height) -->
         <div class="wrapper">
 
-            
+            <!-- flex container -->
             <div class="row flex">
 
+                <!-- col is flex item -->
                 <div class="col db-border">
+                    <!-- col contains img -->
                     <div class="camview">
                         <img src="https://fastly.picsum.photos/id/361/500/300.jpg?hmac=VT4sY2SGoHNGYeBg3Yk_l-kHDqfXjp2C4AGiVIrSv0A" alt="camview">
+                        <!-- the bar contain's the zoomcall partecipant name, and the muted/unmuted icon -->
                         <div class="camview-bar">
+                            <!-- the muted/unmuted icon -->
                             <i class="fa-solid fa-microphone-slash"></i>
+                            <!-- partecipant name -->
                             <span class="camview-name">Pinco Pallo</span>
                         </div>
                     </div>
@@ -473,19 +479,23 @@
     </main>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="flex">
+    <footer class="flex">
 
-            <!-- left bar -->
+            <!-- left bar of the footer contains the camera and mic controls-->
             <div class="video-controls flex">
+                <!-- mic button -->
                 <div class="button btn-with-more">
+                    <!-- mic button (like camera button and screenshare button) has an arrow, so its structure is a bit different because it needs to be properly aligned with flex  -->
                     <div class="icon-and-text">                        
                         <i class="fa-solid fa-microphone"></i>
                         <div class="controls-text">Mute</div>
                     </div>
                     <i class="fa-solid fa-angle-up"></i>
                 </div>
+
+                <!-- camera button -->
                 <div class="button btn-with-more">
+                    <!-- see mic button -->
                     <div class="icon-and-text">                        
                         <i class="fa-solid fa-video"></i>
                         <div class="controls-text">Stop Video</div>
@@ -493,41 +503,50 @@
                     <i class="fa-solid fa-angle-up"></i>
                 </div>
             </div>
-
-
-            <!-- middle bar -->
+            
+            
+            <!-- middle bar of the footer contains the room controls -->
             <div class="room-controls flex">
+                <!-- invite button -->
                 <div class="button">
                     <i class="fa-solid fa-user-plus"></i>
                     <div class="controls-text">Invite</div>
                 </div>
+                <!-- mng partecipants button -->
                 <div class="button">
                     <i class="fa-solid fa-user-group"></i>
                     <div class="controls-text">Manage Partecipants</div>
                 </div>
+                <!-- poll icon -->
                 <div class="button">
                     <i class="fa-solid fa-chart-column"></i>
                     <div class="controls-text">Polling</div>
                 </div>
+                <!-- screenshare button -->
                 <div class="button btn-with-more">
+                    <!-- see mic button -->
                     <div class="icon-and-text">                        
                         <i class="fa-solid fa-share-from-square"></i>
                         <div class="controls-text">Share Screen</div>
                     </div>
                     <i class="fa-solid fa-angle-up"></i>
                 </div>
+                <!-- chat button -->
                 <div class="button">
                     <i class="fa-solid fa-comment"></i>
                     <div class="controls-text">Chat</div>
                 </div>
+                <!-- record button -->
                 <div class="button">
                     <i class="fa-solid fa-record-vinyl"></i>
                     <div class="controls-text">Record</div>
                 </div>
+                <!-- rooms button -->
                 <div class="button">
                     <i class="fa-solid fa-table-cells-large"></i>
                     <div class="controls-text">Breakout Rooms</div>
                 </div>
+                <!-- more options button -->
                 <div class="button">
                     <i class="fa-solid fa-ellipsis"></i>
                     <div class="controls-text">More</div>
@@ -536,7 +555,6 @@
 
             <!-- end meetings -->
             <div class="quit">End meeting</div>
-        </div>
     </footer>
 
 </body>
